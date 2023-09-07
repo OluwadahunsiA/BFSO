@@ -65,6 +65,8 @@ app.get('/', (request, response) => {
 
    </ul>
    </div>`;
+
+  response.send(content);
 });
 
 app.get('/api/notes', (request, response) => {
