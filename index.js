@@ -53,12 +53,12 @@ app.get('/', (request, response) => {
   const content = `<div> 
    <h1>Welcome to the notes app! </h1>
 
-   <p>There are around ${notes.length} entries  </p>
+   <p>There are currently around ${notes.length} entries  </p>
 
-   <p>There are different endpoints to access from the base url </p>
+   <p>There are different endpoints to access from the base url: </p>
 
    <ul> 
-   <li>GET /api/notes </li>
+   <a>GET /api/notes </a>
    <li>GET /api/notes/:id </li>
    <li>DELETE /api/notes/:id </li>
    <li>PUT /api/notes/:id </li>
