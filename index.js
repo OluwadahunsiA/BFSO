@@ -58,7 +58,7 @@ app.get('/', (request, response) => {
    <p>There are different endpoints to access from the base url: </p>
 
    <ul> 
-   <a>GET /api/notes </a>
+   <li>GET /api/notes </li>
    <li>GET /api/notes/:id </li>
    <li>DELETE /api/notes/:id </li>
    <li>PUT /api/notes/:id </li>
