@@ -3,6 +3,6 @@ Content-Type: application/json
 
 
 {
-  "content": "VS code rest client is a pretty handy tool",
+  "content": "The user entered another note",
   "important": true
 }
