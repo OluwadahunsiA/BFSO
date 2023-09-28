@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false);
@@ -8,7 +9,7 @@ console.log('connecting to', uri);
 
 mongoose
   .connect(uri)
-  .then((result) => {
+  .then((_result) => {
     console.log('connected to MongoDB');
   })
   .catch((error) => {
