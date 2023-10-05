@@ -3,6 +3,7 @@ Content-Type: application/json
 
 
 {
-  "content": "Fill the test database",
-  "important": true
+  "content": "Create a new note in the database",
+  "important": true,
+  "userId":"651d4dfe44337eac0e105847"
 }
