@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const getTokenFrom = (request) => {
   const authorization = request.get('authorization');
   if (authorization && authorization.startsWith('Bearer')) {
-    return authorization.replace('Bearer', '');
+    return authorization.replace('Bearer', '').trim();
   }
 
   return null;
@@ -34,7 +34,16 @@ notesRouter.get('/:id', async (request, response, next) => {
 notesRouter.post('/', async (request, response, next) => {
   const body = request.body;
 
-  const decodedToken = jwt.verify(getTokenFrom(request), process.env.SECRET);
+  console.log(request.get('authorization'));
+
+  const token = getTokenFrom(request);
+  console.log(token, 'token');
+
+  const decodedToken = jwt.verify(getTokenFrom(request), process.env.SECRET, {
+    expiresIn: 60 * 60,
+  });
+
+  console.log(decodedToken);
 
   if (!decodedToken.id) {
     return response.status(401).json({ error: 'token invalid' });
