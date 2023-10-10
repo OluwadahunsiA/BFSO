@@ -34,11 +34,6 @@ notesRouter.get('/:id', async (request, response, next) => {
 notesRouter.post('/', async (request, response, next) => {
   const body = request.body;
 
-  console.log(request.get('authorization'));
-
-  const token = getTokenFrom(request);
-  console.log(token, 'token');
-
   const decodedToken = jwt.verify(getTokenFrom(request), process.env.SECRET, {
     expiresIn: 60 * 60,
   });
@@ -71,7 +66,8 @@ notesRouter.delete('/:id', async (request, response, next) => {
   try {
     const removed = await Note.findByIdAndRemove(request.params.id);
 
-    if (removed) response.status(204).end();
+    if (removed)
+      response.status(204).json({ success: 'blog successfully deleted' });
   } catch (error) {
     next(error);
   }
